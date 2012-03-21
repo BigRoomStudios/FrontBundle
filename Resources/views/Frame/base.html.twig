@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+
+	 <head>
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		
+		<title>{% block title %}{% endblock %}</title>
+		
+		{% stylesheets
+			filter='cssrewrite'
+			'bundles/brscore/css/global.css'
+			'bundles/brsfront/css/base.css'
+		%}
+		<link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
+		{% endstylesheets %}
+		
+		{% block css %}
+		{% endblock %}
+		
+		{% javascripts
+			'bundles/brscore/js/jive/jquery.1.7.1.min.js'
+			'bundles/brscore/js/jive/lib/oop.js'
+		%}
+		<script src="{{ asset_url }}"></script>
+		{% endjavascripts %}
+		 
+		{% block js %} 
+		{% endblock %}
+		
+		<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+	
+	</head>
+		
+	<body>
+	   
+		<div id="container">
+		
+			{% block container %}
+			
+				
+		
+	  		{% endblock %}
+	  		
+		</div>
+	
+	</body>
+	
+</html>

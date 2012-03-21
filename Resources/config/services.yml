@@ -1,0 +1,7 @@
+parameters:
+#    brs_front.example.class: BRS\FrontBundle\Example
+
+services:
+#    brs_front.example:
+#        class: %brs_front.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
