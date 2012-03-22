@@ -5,3 +5,8 @@ body{
 p{
 	margin-top: 10px;
 }
+
+button{
+	display: block;
+	margin-top: 10px;
+}
