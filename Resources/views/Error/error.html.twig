@@ -1,0 +1,13 @@
+{% extends 'BRSFrontBundle:Frame:base.html.twig' %}
+
+{% block title %}Whoopsidaisies!{% endblock %}
+
+{% block container %}
+
+	<h1>Whoopsidaisies!</h1>
+	<p class="content">
+		{% block error %}
+			{{ status_code }} {{ status_text }}
+		{% endblock %}
+	</p>
+{% endblock %}
