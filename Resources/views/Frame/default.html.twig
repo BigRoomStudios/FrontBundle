@@ -37,11 +37,13 @@
 			{% endblock %}
 			
 			{% block meta %}
-			<meta name = "viewport" content = "width = 1250">
+				<meta name = "viewport" content = "width = 1250">
 			{% endblock %}
 			
-			<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
-		
+			{% block favicon %}
+				<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+			{% endblock %}
+			
 		</head>
 		
 	{% endblock %}
