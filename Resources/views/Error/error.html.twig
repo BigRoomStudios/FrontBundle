@@ -3,11 +3,12 @@
 {% block title %}Whoopsidaisies!{% endblock %}
 
 {% block container %}
-
+<div id="page" class="error">
 	<h1>Whoopsidaisies!</h1>
 	<p class="content">
 		{% block error %}
 			{{ status_code }} {{ status_text }}
 		{% endblock %}
 	</p>
+</div>
 {% endblock %}
