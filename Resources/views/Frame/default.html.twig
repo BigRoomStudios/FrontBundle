@@ -11,72 +11,75 @@
 
 	{% block head %}
 
-		<head>
+	<head>
 
-			<meta charset="utf-8">
-        	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		{# Meta tags #}
+		{% block meta %}
+		<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	{% endblock %}
 
-			<title>{% block title %}{% endblock %} {% block site_name %}{% endblock %}</title>
+    	{# Page name #}
+		<title>{% block title %}{% endblock %} {% block site_name %}{% endblock %}</title>
+		<meta name="description" content="">
 
-			{% block stylesheets %}
-				{% stylesheets
-					filter='cssrewrite'
-					'bundles/brscore/css/global.css'
-					'bundles/brsfront/css/base.css'
-					'bundles/brspage/css/page.css'
-				%}
-				<link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
-				{% endstylesheets %}
-			{% endblock %}
+		{# Stylesheets #}
+		{% block stylesheets %}
+			{% stylesheets
+				filter='cssrewrite'
+				'bundles/brscore/css/normalize.css'
+				'bundles/brsfront/css/global.css'
+				'bundles/brspage/css/page.css'
+			%}
+			<link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}">
+			{% endstylesheets %}
+		{% endblock %}
 
-			{% block css %}
-			{% endblock %}
+		{# Favicons #}
+		{% block favicon %}
+		<link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+		{% endblock %}
 
-			{% block javascripts %}
-				{% javascripts
-					'bundles/brscore/js/jive/jquery.1.7.1.min.js'
-					'bundles/brscore/js/jive/lib/oop.js'
-				%}
-				<script src="{{ asset_url }}"></script>
-				{% endjavascripts %}
-			{% endblock %}
+		{# Javascripts #}
+		{% block javascripts %}
+			{% javascripts
+				'bundles/brsfront/js/modernizr.custom.96376.js'
+			%}
+			<script src="{{ asset_url }}"></script>
+			{% endjavascripts %}
+		{% endblock %}
 
-			{% block js %}
-			{% endblock %}
-
-			{% block meta %}
-				<meta name = "viewport" content = "width = 1250">
-			{% endblock %}
-
-			{% block favicon %}
-				<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
-			{% endblock %}
-
-		</head>
+	</head>
 
 	{% endblock %}
 
 	{% block body %}
 
-		<body>
+	<body>
 
-			<div id="container">
+		<!--[if lt IE 7]><p class="notice__chrome-frame">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p><![endif]-->
 
-				{% block container %}
+        <p class="notice__js">Javascript is <strong>currently disabled</strong> in your browser. This site requires Javascript to function correctly. Please <a href="http://enable-javascript.com/">enable Javascript in your browser</a>!</p>
 
+		{% block wrapper %}
 
+		<div class="wrapper">
 
-		  		{% endblock %}
+		</div><!-- end .wrapper -->
 
-			</div>
+		{% endblock %}
 
-			{% block bottomscripts %}
+		{% block bottomscripts %}
+			{% javascripts
+				'bundles/brscore/js/jive/jquery.1.7.1.min.js'
+				'bundles/brscore/js/jive/lib/oop.js'
+			%}
+			<script src="{{ asset_url }}"></script>
+			{% endjavascripts %}
+		{% endblock %}
 
-
-			{% endblock %}
-
-		</body>
+	</body>
 
 	{% endblock %}
 
