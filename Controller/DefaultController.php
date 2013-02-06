@@ -23,10 +23,10 @@ class DefaultController extends Controller
 	/**
 	 * Displays a form to create a new entity for this admin module
 	 *
-	 * @Route("/plink")
+	 * @Route("")
 	 * @Template("BRSFrontBundle:Default:index.html.twig")
 	 */
-	public function plinkTestAction()
+	public function indexAction()
 	{
 		return array('title' => 'Hello World');
 	}
