@@ -20,11 +20,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
  */
 class DefaultController extends WidgetController
 {
-	/**
-	 * @Route("")
-	 * @Template("BRSFrontBundle:Default:index.html.twig")
-	 */
-	public function indexAction(){}
 	
 	/**
 	 * Displays a form to create a new entity for this admin module
