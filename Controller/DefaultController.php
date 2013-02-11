@@ -42,7 +42,7 @@ class DefaultController extends WidgetController
 				$message = \Swift_Message::newInstance()
 		        ->setSubject('Big Room Web Contact Form')
 		        ->setFrom(array($email => $name))
-		        ->setTo('sam@bigroomstudios.com')
+		        ->setTo('info@bigroomstudios.com')
 		        ->setBody($message);
 				
 			    $this->get('mailer')->send($message);
