@@ -3,6 +3,7 @@
 namespace BRS\FrontBundle\Controller;
 
 use BRS\CoreBundle\Core\Utility;
+use BRS\CoreBundle\Core\WidgetController;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,17 +18,42 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
  * DefaultController defines routes for front end content delivery
  * @Route("")
  */
-class DefaultController extends Controller
+class DefaultController extends WidgetController
 {
 	
 	/**
 	 * Displays a form to create a new entity for this admin module
 	 *
-	 * @Route("/plink")
+	 * @Route("/contact_form")
 	 * @Template("BRSFrontBundle:Default:index.html.twig")
 	 */
-	public function plinkTestAction()
+	public function contactAction()
 	{
-		return array('title' => 'Hello World');
+		
+		$request = $this->getRequest();
+
+		if($request->isXmlHttpRequest()){ // is it an Ajax request?
+			
+			$email = $request->request->get('email');
+			$name = $request->request->get('name');
+			$message = $request->request->get('message');
+			
+			if($name && $email && $message){
+				
+				$message = \Swift_Message::newInstance()
+		        ->setSubject('Big Room Web Contact Form')
+		        ->setFrom(array($email => $name))
+		        ->setTo('sam@bigroomstudios.com')
+		        ->setBody($message);
+				
+			    $this->get('mailer')->send($message);
+				
+				return $this->jsonResponse(array('success' => true));
+			}
+			
+			return $this->jsonResponse(array('error' => 'missing required values'));
+		}
+		
+		return array('title' => 'Contact Us');
 	}
 }
