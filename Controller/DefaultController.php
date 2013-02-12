@@ -37,17 +37,22 @@ class DefaultController extends WidgetController
 			$name = $request->request->get('name');
 			$message = $request->request->get('message');
 			
+			$to = $this->getParameter('contact_to');
+			$subject = $this->getParameter('contact_subject');
+			
+			//return $this->jsonResponse(array('to' => $to,'subject' => $subject));
+			
 			if($name && $email && $message){
 				
 				$message = \Swift_Message::newInstance()
-		        ->setSubject('Big Room Web Contact Form')
+		        ->setSubject($subject)
 		        ->setFrom(array($email => $name))
-		        ->setTo('info@bigroomstudios.com')
+		        ->setTo($to)
 		        ->setBody($message);
 				
-			    $this->get('mailer')->send($message);
+			    $response = $this->get('mailer')->send($message);
 				
-				return $this->jsonResponse(array('success' => true));
+				return $this->jsonResponse(array('success' => $response));
 			}
 			
 			return $this->jsonResponse(array('error' => 'missing required values'));
