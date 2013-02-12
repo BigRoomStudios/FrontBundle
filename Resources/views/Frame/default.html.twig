@@ -21,7 +21,7 @@
     	{% endblock %}
 
     	{# Page name #}
-		<title>{% block title %}{% endblock %} {% block site_name %}{% endblock %}</title>
+		{% block metatitle %}<title>{% block title %}{% endblock %} {% block site_name %}{% endblock %}</title>{%endblock%}
 		<meta name="description" content="">
 
 		{# Stylesheets #}
