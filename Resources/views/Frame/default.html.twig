@@ -22,7 +22,7 @@
 
     	{# Page name #}
 		{% block metatitle %}<title>{% block title %}{% endblock %} {% block site_name %}{% endblock %}</title>{%endblock%}
-		<meta name="description" content="">
+		{% block metadescription %}<meta name="description" content="{% block description %}{% endblock %}">{% endblock %}
 
 		{# Stylesheets #}
 		{% block stylesheets %}
