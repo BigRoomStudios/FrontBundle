@@ -34,6 +34,7 @@
 			%}
 			<link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}">
 			{% endstylesheets %}
+			<!-- Page -->
 		{% endblock %}
 
 		{# Favicons #}
@@ -43,16 +44,19 @@
 
 		{# Javascripts #}
 		{% block javascripts %}
-			{% javascripts
-				'bundles/brsfront/js/modernizr.custom.96376.js'
-			%}
-			<script src="{{ asset_url }}"></script>
-			{% endjavascripts %}
 		{% endblock %}
 
 	</head>
 
 	{% endblock %}
+	
+	{% if app.debug %}
+	<!--
+	{% block templates %}
+	BRSFrontBundle:Frame:default.html.twig
+	{% endblock %}
+	-->
+	{% endif %}
 
 	{% block body %}
 
