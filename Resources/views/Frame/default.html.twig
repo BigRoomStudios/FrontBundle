@@ -21,8 +21,8 @@
     	{% endblock %}
 
     	{# Page name #}
-		<title>{% block title %}{% endblock %} {% block site_name %}{% endblock %}</title>
-		<meta name="description" content="">
+		{% block metatitle %}<title>{% block title %}{% endblock %} {% block site_name %}{% endblock %}</title>{%endblock%}
+		{% block metadescription %}<meta name="description" content="{% block description %}{% endblock %}">{% endblock %}
 
 		{# Stylesheets #}
 		{% block stylesheets %}
@@ -44,6 +44,12 @@
 
 		{# Javascripts #}
 		{% block javascripts %}
+			{% javascripts
+				'bundles/brsfront/js/modernizr.custom.96376.js'
+			%}
+			<script src="{{ asset_url }}"></script>
+			{% endjavascripts %}
+			<!--[if lte IE 8]><script src="/bundles/brsfront/js/rem.min.js"><![endif]-->
 		{% endblock %}
 
 	</head>
