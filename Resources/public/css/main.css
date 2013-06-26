@@ -605,7 +605,7 @@ textarea {
 /* Widths */
 .grid-item,
 .one_whole     { width: 100%;     }
-.one_half      { width: 49%;      }
+.one_half      { width: 50%;      }
 .one_third     { width: 33.333%;  }
 .two_thirds    { width: 66.666%;  }
 .one_fourth    { width: 25%;      }
