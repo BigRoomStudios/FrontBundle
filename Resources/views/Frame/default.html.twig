@@ -120,14 +120,9 @@
 			
 			{% block bottomscripts %}
 				
-				{#
-					{% javascripts
-						'bundles/brscore/js/jive/jquery.1.7.1.min.js'
-						'bundles/brscore/js/jive/lib/oop.js'
-					%}
-						<script src="{{ asset_url }}"></script>
-					{% endjavascripts %}
-				#}
+				{% javascripts 'bundles/brsfront/js/jquery.2.0.3.min.js' %}
+					<script src="{{ asset_url }}"></script>
+				{% endjavascripts %}
 				
 			{% endblock %}
 			
