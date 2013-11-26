@@ -46,15 +46,24 @@
 			{% block metadescription %}<meta name="description" content="{% block description %}{% endblock %}">{% endblock %}
 			
 			{# Stylesheets #}
-			{% block stylesheets %}{% endblock %}
+			{% block stylesheets %}
+				{% stylesheets filter='cssrewrite' 'bundles/appmain/css/main.css' %}
+					<link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}">
+				{% endstylesheets %}
+			{% endblock %}
 			
 			{# Favicons #}
 			{% block favicon %}
-			<link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+				<link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 			{% endblock %}
 			
 			{# Javascripts #}
 			{% block javascripts %}
+			
+			
+				<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+				<script>window.jQuery || document.write("<script src=\"bundles/appmain/js/lib/jquery-1.10.2.min.js\"><\/script>")</script>
+				
 				{% javascripts
 					'bundles/brsfront/js/modernizr.custom.96376.js'
 				%}
@@ -108,21 +117,13 @@
 				
 				<footer class="toolbar" role="navigation">
 					
-					<div class="wrapper">
-						
-						copy write info
-						
-					</div>
+					<div class="font_muted">dummy footer</div>
 					
 				</footer>
 				
 			{% endblock footer %}
 			
 			{% block bottomscripts %}
-				
-				{% javascripts 'bundles/brsfront/js/jquery.2.0.3.min.js' %}
-					<script src="{{ asset_url }}"></script>
-				{% endjavascripts %}
 				
 			{% endblock %}
 			
