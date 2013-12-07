@@ -88,6 +88,26 @@
 		
 		<body>
 			
+			{% block system_messages %}
+				
+				<div class="system_messages animated fadeInDown">
+					
+					{% for type, messages in app.session.flashbag.all() %}
+						
+						{% for message in messages %}
+							
+							<div class="system_message {{ type }}">
+								{{ message }}
+							</div>
+							
+						{% endfor %}
+						
+					{% endfor %}
+					
+				</div>
+				
+			{% endblock %}
+			
 			{% block header %}
 				
 				<header class="toolbar" role="navigation">
